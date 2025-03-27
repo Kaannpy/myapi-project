@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Random Country Flag</title>
+  <title>Rastegele Ülke Bayrağı getirme</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -49,20 +49,20 @@
 <body>
   <div class="country-card">
     <img id="countryFlag" src="" alt="Country Flag" />
-    <h2 id="countryName">Click the button to get a country</h2>
-    <button onclick="fetchRandomCountry()">Get Random Country Flag</button>
+    <h2 id="countryName">Ülke getir</h2>
+    <button onclick="fetchRandomCountry()">Rastegele Ülke Bayragı</button>
   </div>
 
   <script>
     async function fetchRandomCountry() {
-      // Fetch all countries from the API
+     
       const response = await fetch('https://restcountries.com/v3.1/all');
       const countries = await response.json();
       
-      // Pick a random country from the list
+    
       const randomCountry = countries[Math.floor(Math.random() * countries.length)];
 
-      // Update the page with the new country flag and name
+    
       document.getElementById('countryFlag').src = randomCountry.flags.png;
       document.getElementById('countryName').textContent = randomCountry.name.common;
     }
